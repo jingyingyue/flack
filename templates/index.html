@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- meta tags -->
+		<meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- CSS  -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        
+		<title>Flack</title>
+	</head>
+
+	<body>
+		<!-- brand header -->
+	   	<nav class="navbar justify-content-center pt-0 pb-1">
+    		<h1 class="navbar-brand">
+    			<img src="{{ url_for('static', filename='brand.png') }}" width="35" height="35" class="d-inline-block align-center">
+    			Flack
+	    	</h1>
+		</nav>
+
+    	<!-- display name form -->
+    	<div class="container">
+			<div class="modal fade" id="modal-form" tabindex="-1" role="dialog">
+				<div class="modal-dialog modal-sm" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title">Welcome!</h5>
+						</div>
+						<div class="modal-body">
+							<div class="md-form">
+								<i class="fa fa-user ml-3"></i>
+								<input id="modal-input" type="text" class="form-control d-inline-block w-75 ml-2" placeholder="Enter display name">
+								<i id="modal-error"></i>
+							</div>
+						</div>
+						<div class="modal-footer d-flex justify-content-center">
+							<button id="modal-button" type="button" class="btn" disabled>Go</button>
+						</div>
+					</div>
+				</div>
+			</div>
+    	</div>
+
+		<!-- main page -->
+		<div class="container-fluid">
+			<div class="row">
+				<!-- side-bar -->
+				<div class="left-container col-4">
+					<div class="card">
+				    	<!-- user -->
+				    	<div class="user-sidebar">
+				    		<h5 class="card-header text-white"><i class="fa fa-user-circle-o"></i>Me</h5>
+		    				<div class="card-body">
+					    		<h5 id="user" class="card-title my-auto"></h5>
+					    	</div>
+					    </div>
+
+				    	<!-- channels -->
+				    	<div class="channels-sidebar">
+					    	<h5 class="card-header text-white"><i class="fa fa-map-signs"></i>Channels</h5>
+		    				<div class="card-body">
+		    					<!-- join channel -->
+		    					<ul id="channel-list" class="list-group mb-5">
+			    					{% for channel in channels %}
+					    					<li class="list-group-item" data-channel="{{ channel }}">{{ channel }}</li>
+			    					{% endfor %}
+			    				</ul>
+
+			    				<!-- create channel -->
+			    				<form id="channel-form" onsubmit="return false">
+			    					<input id="channel-input" type="text" class="form-control" placeholder="Enter channel name">
+			    					<i id="channel-error"></i>
+			    					<div class="text-right"><button id="channel-button" type="button" class="btn mt-2" disabled>Create</button></div>
+			    				</form>
+		    				</div>
+		    			</div>
+					</div>
+				</div>
+
+				<!-- current channel -->
+				<div class="right-container col-8">
+					<div class="card">
+						<h5 id="channel-name" class="card-header text-white"></h5>
+						<div class="card-body">
+							<!-- view messages -->
+							<div id="messages-view">
+							</div>
+
+							<!-- send messages -->
+							<div id="messages-send">
+								<form id="msg-form" onsubmit="return false">
+									<textarea id="msg-input" class="form-control" placeholder="Enter message" disabled></textarea>
+									<input id="msg-file" type="file" disabled>
+									<div class="text-right"><button id="msg-button" type="button" class="btn mt-2" disabled>Send</button></div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- scripts -->
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
+	</body>
+</html>
+
+
+

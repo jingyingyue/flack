@@ -1,0 +1,163 @@
+/*header*/
+.navbar .navbar-brand {
+	font-size: 30px;
+}
+
+
+/*buttons*/
+#modal-button,
+#channel-button,
+#msg-button {
+	color: white;
+	background-color: #ec5569;
+}
+
+#msg-file {
+	margin-top: 5px;
+}
+
+
+/*display name form*/
+.md-form .fa-user {
+	font-size: 28px;
+}
+
+#modal-error {
+	font-size: 13px;
+	color: #ec5569;
+	margin-top: 10px;
+	margin-left: 50px;
+}
+
+
+/*containers*/
+.left-container .card,
+.right-container .card {
+	border-color: #ec5569;
+	height: 490px;
+	margin-bottom: 15px;
+}
+
+.left-container .card-header,
+.right-container .card-header {
+	background-color: #ec5569;
+}
+
+
+/*user side-bar*/
+.card-header .fa-user-circle-o {
+	font-size: 24px;
+	margin-right: 8px;
+}
+
+
+/*channels side-bar*/
+.card-header .fa-map-signs {
+	font-size: 24px;
+	margin-right: 8px;	
+}
+
+#channel-list {
+	max-height: 150px;
+	overflow-y: auto;
+}
+
+#channel-list li:hover {
+    cursor: pointer;
+    color: #ec5569;
+}
+
+#channel-error {
+	font-size: 13px;
+	color: #ec5569;
+}
+
+
+/*messages*/
+.card-header .fa-comments {
+	font-size: 24px;
+	margin-right: 8px;
+}
+
+.right-container .card-body {
+    display: grid;
+    grid-template-rows: auto 130px;
+    grid-template-areas:
+	    "view"
+	    "send";
+}
+
+#messages-view {
+	grid-area: view;
+	margin-bottom: 20px;
+	max-height: 250px;
+	overflow-y: auto;
+}
+
+#messages-view div {
+    display: flex;
+    flex-direction: column;
+	border-radius: 5px;
+	margin: 0;
+	padding: 5px 10px 5px 12px;
+	width: 100%;
+	animation-name: msg-appear;
+	animation-duration: 0.5s;
+	animation-fill-mode: forwards;
+}
+
+#messages-view .msg-by-me {
+    float: right;
+    clear: both;
+	background-color: #ffdee4;
+	width: 45%;
+	margin-bottom: 10px;
+}
+
+#messages-view .msg-by-others {
+	float: left;
+	clear: both;
+	background-color: #e6eef2;
+	width: 45%;
+	margin-bottom: 10px;
+}
+
+#messages-view .msg-to-notify {
+	float: none;
+	text-align: center;
+	color: #ec5569;
+	font-weight: 500;
+	font-style: italic;
+	margin-bottom: 10px;
+}
+
+#messages-view .msg-user {
+	display: block;
+	font-weight: 500;
+}
+
+#messages-view .msg-content {
+	display: block;
+}
+
+#messages-view .msg-time {
+	display: block;
+	text-align: right;
+	font-size: 10px;
+	color: #747474;
+}
+
+#messages-send {
+    grid-area: send;
+}
+
+
+/*animations*/
+@keyframes msg-appear {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
