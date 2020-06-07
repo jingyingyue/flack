@@ -1,5 +1,5 @@
 # Flack
-Online messenging service
+Online messaging service
 ![Flack](https://i.imgur.com/bn6dch8.png)
 
 ## Demo
