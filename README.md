@@ -17,7 +17,3 @@ By clicking on any channel from the channel list, a user will join that channel 
 
 ### 4. Send Message
 Enabled only when a user joins a channel. Messages sent by a user will be visible to all other users who joined the same channel. When a user joins/leaves a channel, a notification message will automatically be sent. Supports the sending of attachments, which will be sent as a message with a download link.
-
----
-
-*Completed under CS50W Web Programming with Python and JavaScript*
